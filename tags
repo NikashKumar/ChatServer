@@ -1,0 +1,68 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BACKLOG	codeinclusion.c	/^const int BACKLOG = 10;     \/\/ Number of connections that can wait in que before they be accept()ted$/;"	v
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=$/;"	m
+DEBUG	Makefile	/^DEBUG=0$/;"	m
+FALSE	bool.h	21;"	d
+MAXFD	codeinclusion.c	/^const int MAXFD = 10;       \/\/ Maximum file descriptors to use. Equals maximum clients.$/;"	v
+MAXLEN	codeinclusion.c	/^const int MAXLEN = 1024 ;   \/\/ Max length of a message.$/;"	v
+MAX_THREADS	codeinclusion.c	33;"	d	file:
+PORT	codeinclusion.c	/^const  char * PORT = "12345" ; \/\/ port numbers 1-1024 are probably reserved by your OS$/;"	v
+TRUE	bool.h	20;"	d
+address	llist2.h	/^	struct sockaddr_storage address;$/;"	m	struct:client_info	typeref:struct:client_info::sockaddr_storage
+arg	chatclient.c	/^void *arg;$/;"	v
+change_nickname	codeinclusion.c	/^void change_nickname(char *oldnickname, char *newnickname)$/;"	f
+chomp	codeinclusion.c	/^void chomp(char *s)$/;"	f
+client	chatclient.c	/^struct sockaddr_in client;$/;"	v	typeref:struct:sockaddr_in
+client_info	llist2.h	/^	struct client_info *client_info;$/;"	m	struct:list_entry	typeref:struct:list_entry::client_info
+client_info	llist2.h	/^typedef struct client_info$/;"	s
+client_info	llist2.h	/^} client_info;$/;"	t	typeref:struct:client_info
+client_read_server	chatclient.c	/^int client_read_server(int arg)$/;"	f
+client_reply	chatclient.c	/^char message[1000] , client_reply[2000],client_reply1[2000];$/;"	v
+client_reply1	chatclient.c	/^char message[1000] , client_reply[2000],client_reply1[2000];$/;"	v
+color_cyan	colors.h	/^const char *const color_cyan    = "\\033[0;1;36m"; \/\/ cyan + bold$/;"	v
+color_green	colors.h	/^const char *const color_green   = "\\033[0;1;32m"; \/\/ green + bold$/;"	v
+color_magenta	colors.h	/^const char *const color_magenta = "\\033[0;1;35m"; \/\/ magenta + bold$/;"	v
+color_normal	colors.h	/^const char *const color_normal  = "\\033[0m";$/;"	v
+color_red	colors.h	/^const char *const color_red     = "\\033[0;1;31m"; \/\/ red + bold$/;"	v
+color_white	colors.h	/^const char *const color_white   = "\\033[0;1;37m"; \/\/ white + bold$/;"	v
+color_yellow	colors.h	/^const char *const color_yellow  = "\\033[0;1;33m"; \/\/ yellow + bold$/;"	v
+curr_thread_count	codeinclusion.c	/^int curr_thread_count = 0;$/;"	v
+curr_thread_count_mutex	codeinclusion.c	/^pthread_mutex_t curr_thread_count_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+i	chatclient.c	/^int sock,i=0,username_counter=0;$/;"	v
+list_entry	llist2.h	/^typedef struct list_entry$/;"	s
+list_entry	llist2.h	/^} list_entry;$/;"	t	typeref:struct:list_entry
+list_start	codeinclusion.c	/^struct list_entry list_start;$/;"	v	typeref:struct:list_entry
+llist_change_by_sockfd	llist2.c	/^int llist_change_by_sockfd(list_entry *list_start, client_info *element, int sockfd)$/;"	f
+llist_find_by_nickname	llist2.c	/^list_entry* llist_find_by_nickname(list_entry *list_start, char *nickname)$/;"	f
+llist_find_by_sockfd	llist2.c	/^list_entry* llist_find_by_sockfd(list_entry *list_start, int sockfd)$/;"	f
+llist_get_count	llist2.c	/^int llist_get_count(list_entry *list_start)$/;"	f
+llist_get_nicknames	llist2.c	/^int llist_get_nicknames(list_entry *list_start, char **nicks)$/;"	f
+llist_init	llist2.c	/^void llist_init(list_entry *list_start)$/;"	f
+llist_insert	llist2.c	/^int llist_insert(list_entry *list_start, client_info *element)$/;"	f
+llist_remove_by_sockfd	llist2.c	/^int llist_remove_by_sockfd(list_entry *list_start, int sockfd)$/;"	f
+llist_show	llist2.c	/^int llist_show(list_entry *list_start)$/;"	f
+main	chatclient.c	/^int main(int argc , char *argv[])$/;"	f
+main	codeinclusion.c	/^int main()$/;"	f
+message	chatclient.c	/^char message[1000] , client_reply[2000],client_reply1[2000];$/;"	v
+mutex	llist2.h	/^	pthread_mutex_t *mutex;$/;"	m	struct:list_entry
+mutex_state	codeinclusion.c	/^pthread_mutex_t mutex_state = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+next	llist2.h	/^	struct list_entry *next;$/;"	m	struct:list_entry	typeref:struct:list_entry::list_entry
+nickname	llist2.h	/^	char nickname[20];$/;"	m	struct:client_info
+process_msg	codeinclusion.c	/^void process_msg(char *message, int self_sockfd)$/;"	f
+res	codeinclusion.c	/^struct addrinfo server, *res;$/;"	v	typeref:struct:
+send_broadcast_msg	codeinclusion.c	/^void send_broadcast_msg(char* format, ...)$/;"	f
+send_private_msg	codeinclusion.c	/^void send_private_msg(char* nickname, char* format, ...)$/;"	f
+server	codeinclusion.c	/^struct addrinfo server, *res;$/;"	v	typeref:struct:addrinfo
+server_fd	codeinclusion.c	/^int server_fd = 0;$/;"	v
+server_read_client	codeinclusion.c	/^void server_read_client(int *arg)$/;"	f
+server_socket_init	codeinclusion.c	/^int server_socket_init(void)$/;"	f
+sock	chatclient.c	/^int sock,i=0,username_counter=0;$/;"	v
+sockfd	llist2.h	/^	int sockfd;$/;"	m	struct:client_info
+the_state	codeinclusion.c	/^volatile fd_set the_state;$/;"	v
+username_counter	chatclient.c	/^int sock,i=0,username_counter=0;$/;"	v

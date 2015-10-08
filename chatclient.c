@@ -1,0 +1,115 @@
+/* Group chat client */
+
+
+#include<stdio.h>  //printf 
+#include<string.h>  //strlen  
+#include<sys/socket.h>  //socket
+#include<arpa/inet.h>   //inet_addr
+#include<unistd.h>  // for close function
+#include<stdlib.h>
+
+#include "colors.h"
+int sock,i=0,username_counter=0;
+
+struct sockaddr_in client;
+char message[1000] , client_reply[2000],client_reply1[2000];
+
+void *arg;
+
+
+int client_read_server(int arg);
+
+
+int main(int argc , char *argv[])
+
+{
+
+	//Create a socket
+
+	sock = socket(AF_INET , SOCK_STREAM , 0);
+
+	if (sock == -1)
+	{
+		printf("\n Could not create socket");
+	}
+
+	printf("\n Socket created : %d\n", sock);
+
+	int portno;
+	portno = atoi(argv[1]);
+
+	client.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+	client.sin_family = AF_INET;
+
+	client.sin_port = htons( portno );
+
+
+	//Connect to remote client
+
+	if (connect(sock , (struct sockaddr *)&client , sizeof(client)) < 0)
+
+	{
+		perror("Error:");
+		return 1;
+	}
+
+
+	printf(" \n User connection to server established \n");
+
+	memset(&client_reply[0], 0, sizeof(client_reply));
+
+	recv(sock , client_reply , 2000 , 0);
+
+	printf("\n %sMessage from server %s\n ",color_green, client_reply);
+
+	//keep communicating with client
+
+	while(1)
+	{
+		pthread_t threads;
+
+		pthread_create(&threads, NULL, (void (*)(void *))client_read_server, (void *) sock);
+
+
+		int i;
+
+		for (i=0; i<=100; i++)
+
+		{
+			memset(&message[i], 0, sizeof(message));
+
+			printf("\n %s Hi .. Type a message :\n ",color_cyan);
+
+			scanf("%s" , message);
+
+			//Send some data
+
+
+			if( send(sock , message , strlen(message) , 0) < 0)
+			{
+				puts("\n Send failed");
+				return -1;
+			}
+		}
+
+
+	}
+}   
+
+
+int client_read_server(int arg)
+
+{
+	int cc;
+	memset(&client_reply[0], 0, sizeof(client_reply));
+	//Receive a reply from the client
+	while (cc=recv(arg , client_reply , 2000 , 0)) 
+	{
+		// puts(" Message from user : ");
+		puts(client_reply);
+		memset(&client_reply[0], 0, sizeof(client_reply));
+
+	}
+	return NULL;
+}
